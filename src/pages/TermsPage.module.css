@@ -1,0 +1,225 @@
+.page {
+  min-height: 100vh;
+  padding-top: calc(var(--nav-height) + 60px);
+  padding-bottom: 80px;
+}
+
+.container { max-width: 1100px; }
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+.header {
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.meta {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* ── Two-column layout ────────────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ── ToC sidebar ──────────────────────────────────────────────────────────── */
+.toc {
+  position: sticky;
+  top: calc(var(--nav-height) + 24px);
+}
+
+.tocCard { padding: 20px; }
+
+.tocHeading {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.tocList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tocLink {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  font-family: var(--font-sans);
+  line-height: 1.4;
+}
+
+.tocLink:hover {
+  color: var(--color-indigo-light);
+  background: var(--color-indigo-dim);
+}
+
+/* ── Body sections ────────────────────────────────────────────────────────── */
+.body {
+  min-width: 0;
+}
+
+/* Warning box */
+.warning {
+  display: flex;
+  gap: 16px;
+  background: rgba(245, 158, 11, 0.07);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+}
+
+.warningIcon {
+  flex-shrink: 0;
+  color: var(--color-high);
+  padding-top: 2px;
+}
+
+.warningTitle {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-high);
+  margin-bottom: 6px;
+}
+
+.warningText {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Section */
+.section {
+  margin-bottom: 8px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  padding-top: 8px;
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+
+.section p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.section p:last-child { margin-bottom: 0; }
+
+/* Lists */
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+  padding-left: 4px;
+}
+
+.list li {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-indigo);
+}
+
+.listWarn li::before {
+  background: var(--color-critical);
+}
+
+/* Contact block */
+.contactBlock {
+  padding: 0;
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contactRow:last-child { border-bottom: none; }
+
+.contactLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  width: 150px;
+  flex-shrink: 0;
+}
+
+.contactValue {
+  font-size: 13px;
+  color: var(--color-indigo-light);
+  font-family: var(--font-mono);
+}
+
+/* Footer nav */
+.footerNav {
+  display: flex;
+  gap: 12px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .toc { position: static; }
+  .tocCard { display: none; }
+}
+
+@media (max-width: 640px) {
+  .footerNav { flex-direction: column; }
+}

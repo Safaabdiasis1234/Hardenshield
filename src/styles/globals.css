@@ -1,0 +1,235 @@
+/* ============================================================
+   HardenShield — Global Design System
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Brand */
+  --color-bg:           #05070f;
+  --color-bg-card:      #0b0e1c;
+  --color-bg-elevated:  #0f1225;
+  --color-border:       rgba(255, 255, 255, 0.07);
+  --color-border-hover: rgba(79, 70, 229, 0.4);
+
+  /* Accent */
+  --color-indigo:       #4f46e5;
+  --color-indigo-light: #6366f1;
+  --color-indigo-dim:   rgba(79, 70, 229, 0.15);
+  --color-indigo-glow:  rgba(79, 70, 229, 0.3);
+
+  /* Severity */
+  --color-critical:     #ef4444;
+  --color-critical-bg:  rgba(239, 68, 68, 0.10);
+  --color-high:         #f59e0b;
+  --color-high-bg:      rgba(245, 158, 11, 0.10);
+  --color-medium:       #4ade80;
+  --color-medium-bg:    rgba(74, 222, 128, 0.10);
+
+  /* Text */
+  --color-text:         #e2e8f0;
+  --color-text-muted:   #64748b;
+  --color-text-dim:     #475569;
+
+  /* Code */
+  --color-code-bg:      #05070f;
+  --color-code-text:    #86efac;
+
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Layout */
+  --nav-height: 64px;
+  --max-width:  1200px;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-indigo-dim); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-indigo); }
+
+/* ── Layout utilities ───────────────────────────────────────────────────── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s var(--ease-out);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-indigo);
+  color: #fff;
+  border-color: var(--color-indigo);
+}
+.btn-primary:hover {
+  background: var(--color-indigo-light);
+  border-color: var(--color-indigo-light);
+  box-shadow: 0 0 24px var(--color-indigo-glow);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+.btn-ghost:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-indigo-light);
+}
+
+.btn-lg { padding: 16px 32px; font-size: 15px; }
+
+/* ── Cards ──────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.08);
+}
+
+/* ── Badges ─────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-critical {
+  background: var(--color-critical-bg);
+  color: var(--color-critical);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+.badge-high {
+  background: var(--color-high-bg);
+  color: var(--color-high);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+.badge-medium {
+  background: var(--color-medium-bg);
+  color: var(--color-medium);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+}
+
+/* ── Code blocks ────────────────────────────────────────────────────────── */
+.codeBlock {
+  background: var(--color-code-bg);
+  border: 1px solid rgba(134, 239, 172, 0.15);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-code-text);
+  overflow-x: auto;
+  line-height: 1.7;
+}
+
+/* ── Section label ──────────────────────────────────────────────────────── */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-indigo-light);
+  margin-bottom: 16px;
+}
+.sectionLabel::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-indigo);
+}
+
+/* ── Gradient text ──────────────────────────────────────────────────────── */
+.gradientText {
+  background: linear-gradient(135deg, #fff 0%, var(--color-indigo-light) 60%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Divider ────────────────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 32px 0;
+}
+
+/* ── Keyframe animations ────────────────────────────────────────────────── */
+@keyframes spin-slow    { to { transform: rotate(360deg); } }
+@keyframes spin-reverse { to { transform: rotate(-360deg); } }
+
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes progress-fill {
+  from { width: 0%; }
+  to   { width: var(--target-width); }
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+}
