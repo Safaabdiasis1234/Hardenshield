@@ -79,3 +79,5 @@ HardenShield started as a personal project to fix that gap. The goal was simple:
 ## License
 
 MIT
+
+<img width="2002" height="1770" alt="image" src="https://github.com/user-attachments/assets/2aade160-70a4-4c8b-99b9-ab8ad6145345" />
